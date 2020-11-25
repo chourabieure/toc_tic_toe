@@ -23,6 +23,12 @@ body{
     justify-content: space-between;
     padding: 10px 5px ;
 }
+.turn{
+    display: flex;
+    width: 300px;
+    justify-content: space-between;
+    padding: 0 23px;
+}
 #score div{
     width: 5px;
     background-color: var(--primary);
