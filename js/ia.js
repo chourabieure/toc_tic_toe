@@ -17,7 +17,6 @@ $(document).ready(function(){
             board.setState(clickedCell,currPlayer);
 
             if(winner = board.hasWinner()){
-                console.log('winner1');
                 if(winner == 'none'){
                     $('#whoWin').append("It's a draw !");
                 }else{
@@ -39,7 +38,6 @@ $(document).ready(function(){
             //------------
             
             if(winner = board.hasWinner()){
-                console.log('winner2');
                 if(winner == 'none'){
                     $('#whoWin').append("It's a draw !");
                 }else{
@@ -78,22 +76,15 @@ function iaTurn(board){
     let currPlayer = 'O';
 
 
-    console.log("----------------");
     console.log(board.availables);
     let len = board.availables.length-1
-    console.log("len : "+len);
     let rand = Math.floor(Math.random() * (len - 0 +1)) + 0
-    console.log("rand : "+rand);
     let moove = board.availables[rand];
-    console.log("moove : "+moove);
     let clickedCell = moove;
 
     $('#'+clickedCell).append('<h1>'+currPlayer+'</h1>');
     $('#'+clickedCell).css('cursor','not-allowed')
     board.setState(clickedCell,currPlayer);
-
-    console.log(board.availables);
-    console.log("----------------");
 }
 
 class Board{
