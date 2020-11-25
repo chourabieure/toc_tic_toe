@@ -17,6 +17,29 @@ body{
     align-items: center;
     position: relative;
 }
+#score{
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 5px ;
+}
+#score div{
+    width: 5px;
+    background-color: var(--primary);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 .win-message{
     display: none;
     justify-content: center;

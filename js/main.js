@@ -2,6 +2,9 @@ $(document).ready(function(){
 
     board = new Board();
     var currPlayer = 'X';
+    var scoreX = 0;
+    var scoreO = 0;
+
     $('.cell').css('cursor','pointer');
 
     $('.cell').click( function(){
@@ -11,17 +14,28 @@ $(document).ready(function(){
             $('#'+clickedCell).append('<h1>'+currPlayer+'</h1>');
             $('#'+clickedCell).css('cursor','not-allowed')
             board.setState(clickedCell,currPlayer);
+            if(currPlayer == 'X'){
+                currPlayer = 'O';
+                $('#turn').html('O turn');
+            }else{
+                currPlayer = 'X';
+                $('#turn').html('X turn');
+            }
         }
-        if(currPlayer == 'X'){
-            currPlayer = 'O';
-        }else{
-            currPlayer = 'X';
-        }
+        
         if(winner = board.hasWinner()){
             if(winner == 'none'){
                 $('#whoWin').append("It's a draw !");
             }else{
                 $('#whoWin').append(winner+' a gagné !');
+                if(winner == 'X'){
+                    scoreX++;
+                    $('#scoreX').html(scoreX);
+                    
+                }else if(winner == 'O'){
+                    scoreO++;
+                    $('#scoreO').html(scoreO);
+                }
             }
             $('.win-message').first().css('display','flex');
         }
